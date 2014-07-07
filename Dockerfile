@@ -1,8 +1,9 @@
-FROM ubuntu:13.10
-MAINTAINER Torkale <torkale [at] gmail.com>
+FROM ubuntu:14.04
+# Forked from MAINTAINER Torkale <torkale [at] gmail.com>
+MAINTAINER Nicholas Iaquinto <nickiaq@gmail.com>
 
 RUN apt-get update
-RUN apt-get -y install wget git curl git-core openssh-server ruby ruby-dev ruby-bundler
+RUN apt-get -y install wget git curl git-core openssh-server 
 
 RUN apt-get install -q -y openjdk-7-jre-headless
 
@@ -18,9 +19,6 @@ ENV JENKINS_HOME /var/lib/jenkins
 
 # Use bash, not dash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
-RUN gem install bundler rake
-RUN gem install capistrano -v 3.2.1
 
 RUN mkdir /var/run/sshd
 
