@@ -1,9 +1,9 @@
 docker-jenkins
 ==============
 
-Jenkins in a Docker container; based on Ubuntu 13.10.
+Jenkins in a Docker container; based on Ubuntu 14.04.
 
-Allows capistrano 3 deployment scripts.
+Includes gradle builds.
 
 It comes with the following plugins:
 
@@ -19,22 +19,24 @@ It comes with the following plugins:
  * ghprb.hpi
  * github-oauth.hpi
  * scm-api.hpi
- * postbuild-task.hpi
+ * postbuild-task.hpi 
+ * bitbucket.hpi
+ * gradle.hpi
 
 Usage
 -----
 
-    docker run -d -t torkale/jenkins
+    docker run -d -t niaquinto/jenkins
 
 Building
 --------
 
 Grab Dockerfile from this repository on Github
 
-    docker build github.com/torkale/docker-jenkins
+    docker build github.com/niaquinto/docker-jenkins
 
 Get a Docker image from Docker index
 
-    docker pull torkale/jenkins
+    docker pull niaquinto/jenkins
 
 
