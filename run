@@ -20,6 +20,8 @@ if find $DATA/plugins -maxdepth 0 -empty | read v; then
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/github-oauth.hpi)
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/scm-api.hpi)
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/postbuild-task.hpi)
+    (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/bitbucket.hpi)
+    (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/gradle.hpi)
 fi
 
 chown -R jenkins $DATA
