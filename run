@@ -4,8 +4,10 @@ set -e
 PLUGINS_ENDPOINT=http://updates.jenkins-ci.org/latest/
 DATA=/var/lib/jenkins
 
+# Only need this the first time
 mkdir -p $DATA/plugins
 
+# Here is where we download the plugins if not already done so
 if find $DATA/plugins -maxdepth 0 -empty | read v; then
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/hipchat.hpi)
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/greenballs.hpi)
@@ -24,6 +26,8 @@ if find $DATA/plugins -maxdepth 0 -empty | read v; then
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/gradle.hpi)
 fi
 
+# Set correct permissions
 chown -R jenkins $DATA
 
+# And, run jenkins
 exec su jenkins -c "java -jar /usr/share/jenkins/jenkins.war"
